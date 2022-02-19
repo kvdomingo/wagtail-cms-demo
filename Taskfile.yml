@@ -1,0 +1,27 @@
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - docker compose up -d --build
+      - docker compose logs --follow
+
+  logs:
+    cmds:
+      - docker compose logs --follow
+
+  shutdown:
+    cmds:
+      - docker compose stop
+
+  restart:
+    cmds:
+      - docker compose restart
+
+  restart-proxy:
+    cmds:
+      - docker compose restart proxy
+
+  clean:
+    cmds:
+      - docker compose down -v --remove-orphans
